@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://corxn0om7lgn6"]
+
+[ext_resource type="PackedScene" uid="uid://b7fwo6pf5rijq" path="res://scene/level.tscn" id="1_hldmh"]
+[ext_resource type="Script" uid="uid://dhnbo1vfwq46a" path="res://levels/level_3.gd" id="2_bmgug"]
+[ext_resource type="PackedScene" uid="uid://cqb41knkin4os" path="res://scene/obstacle.tscn" id="2_gew73"]
+[ext_resource type="PackedScene" uid="uid://ve8wlfssrbyh" path="res://scene/moving_obstcl.tscn" id="3_lfnxh"]
+[ext_resource type="PackedScene" uid="uid://b56mma4ae1elw" path="res://scene/emitter.tscn" id="4_8l0e1"]
+[ext_resource type="PackedScene" uid="uid://cnlt7h6402e3d" path="res://scene/emitter_park.tscn" id="5_lfnxh"]
+[ext_resource type="PackedScene" uid="uid://cpvknr7q7kyhl" path="res://scene/mix.tscn" id="6_ofchu"]
+
+[node name="Level_3" instance=ExtResource("1_hldmh")]
+script = ExtResource("2_bmgug")
+
+[node name="Polygon2D" parent="floor" index="0"]
+polygon = PackedVector2Array(8400, -3256, 13960, -3280, 13944, 832, 8136, 592)
+
+[node name="moving_obstcl" parent="mobile_obstacle" index="0" instance=ExtResource("3_lfnxh")]
+position = Vector2(-8, -2)
+polygon = PackedVector2Array(9696, -472, 11336, -472, 11336, 0, 9696, 0)
+motion = Vector2(0, 400)
+is_player_friendly = true
+
+[node name="moving_obstcl2" parent="mobile_obstacle" index="1" instance=ExtResource("3_lfnxh")]
+position = Vector2(0, -120)
+polygon = PackedVector2Array(12160, -1472, 12480, -1472, 12480, -1152, 12160, -1152)
+motion = Vector2(416, 0)
+is_player_friendly = true
+
+[node name="obstacle5" parent="obstacles" index="0" instance=ExtResource("2_gew73")]
+polygon = PackedVector2Array(8512, 0, 11328, 0, 11328, -1160, 8512, -1160)
+is_player_friendly = true
+
+[node name="obstacle6" parent="obstacles" index="1" instance=ExtResource("2_gew73")]
+polygon = PackedVector2Array(8520, 320, 11296, 320, 11296, 1848, 8528, 1848)
+is_player_friendly = true
+
+[node name="obstacle1" parent="obstacles" index="2" instance=ExtResource("2_gew73")]
+position = Vector2(696, -616)
+polygon = PackedVector2Array(8512, 0, 11464, 8, 11464, -1008, 9352, -1008, 9352.71, -530.398, 8504, -528)
+
+[node name="obstacle7" parent="obstacles" index="3" instance=ExtResource("2_gew73")]
+position = Vector2(2768, 1464)
+polygon = PackedVector2Array(8512, 0, 11312, 16, 11312, -2624, 9832, -2616, 9832, -1144, 9392, -1144, 9312, -1696, 9144, -1696, 9072, -1152, 8512, -1144)
+
+[node name="obstacle" parent="obstacles" index="4" instance=ExtResource("2_gew73")]
+position = Vector2(0, 8)
+polygon = PackedVector2Array(10816, -1152, 12160, -1152, 12160, -3264, 10816, -3256)
+is_player_friendly = true
+
+[node name="obstacle2" parent="obstacles" index="5" instance=ExtResource("2_gew73")]
+position = Vector2(1664, 8)
+polygon = PackedVector2Array(10816, -1152, 12160, -1152, 12160, -3272, 10816, -3272)
+is_player_friendly = true
+
+[node name="obstacle3" parent="obstacles" index="6" instance=ExtResource("2_gew73")]
+position = Vector2(16, 0)
+polygon = PackedVector2Array(11312, -608, 11192, -608, 11192, -80, 11312, -80)
+
+[node name="level_start" parent="active_emitters" index="0"]
+position = Vector2(11640, 144)
+angle = 270
+
+[node name="emitter" parent="active_emitters" index="1" instance=ExtResource("4_8l0e1")]
+position = Vector2(11456, -424)
+
+[node name="emitter_park" parent="active_emitters" index="2" instance=ExtResource("5_lfnxh")]
+position = Vector2(12352, -432)
+angle_window = 150
+angle = 60
+
+[node name="mix" parent="." index="4" instance=ExtResource("6_ofchu")]
+position = Vector2(12352, 48)
+
+[node name="level_fin" parent="." index="5"]
+position = Vector2(12320, -1008)
+fix_angle = 270
+
+[node name="level_cam" parent="." index="6"]
+position = Vector2(12040, -392)
+zoom = Vector2(0.7, 0.7)
+
+[node name="Spawnpoint" parent="." index="7"]
+position = Vector2(11872, -312)
+scale = Vector2(15, 13)
+
+[connection signal="player_contact" from="active_emitters/level_start" to="." method="_on_start_player_contact"]
+[connection signal="change_scene" from="level_fin" to="." method="_on_fin_change_scene"]

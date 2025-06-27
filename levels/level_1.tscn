@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxtuk8d5vul06"]
+
+[ext_resource type="PackedScene" uid="uid://b7fwo6pf5rijq" path="res://scene/level.tscn" id="1_jirdo"]
+[ext_resource type="PackedScene" uid="uid://cqb41knkin4os" path="res://scene/obstacle.tscn" id="2_bt44k"]
+[ext_resource type="Script" uid="uid://bxreotgwr10l5" path="res://levels/level_1.gd" id="2_kx6l7"]
+[ext_resource type="PackedScene" uid="uid://ve8wlfssrbyh" path="res://scene/moving_obstcl.tscn" id="3_kx6l7"]
+[ext_resource type="PackedScene" uid="uid://cnlt7h6402e3d" path="res://scene/emitter_park.tscn" id="5_n46q3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n46q3"]
+radius = 100.0
+
+[node name="Level_1" instance=ExtResource("1_jirdo")]
+script = ExtResource("2_kx6l7")
+
+[node name="Polygon2D" parent="floor" index="0"]
+polygon = PackedVector2Array(-4584, -72, 7168, -88, 6904, 1392, -4664, 1248)
+
+[node name="moving_obstcl" parent="mobile_obstacle" index="0" instance=ExtResource("3_kx6l7")]
+polygon = PackedVector2Array(-2808, 104, 0, 104, 0, 448, -2808, 448)
+motion = Vector2(0, 344)
+is_player_friendly = true
+
+[node name="moving_obstcl2" parent="mobile_obstacle" index="1" instance=ExtResource("3_kx6l7")]
+position = Vector2(2272, 328)
+polygon = PackedVector2Array(-192, 104, 0, 104, 0, 448, -192, 448)
+motion = Vector2(0, -344)
+is_player_friendly = true
+
+[node name="obstacle" parent="obstacles" index="0" instance=ExtResource("2_bt44k")]
+polygon = PackedVector2Array(-4480, -640, -4480, -320, -4480, 448, 0, 448, 0.0648193, -640)
+is_player_friendly = true
+
+[node name="obstacle2" parent="obstacles" index="1" instance=ExtResource("2_bt44k")]
+position = Vector2(2080, 1216)
+rotation = 3.14159
+polygon = PackedVector2Array(2080, 448.005, 6560, 448, 6560, -640, 2080, -639.995)
+is_player_friendly = true
+
+[node name="obstacle3" parent="obstacles" index="2" instance=ExtResource("2_bt44k")]
+polygon = PackedVector2Array(2080, 448, 6528, 448, 6528, -640, 2080, -640)
+is_player_friendly = true
+
+[node name="obstacle4" parent="obstacles" index="3" instance=ExtResource("2_bt44k")]
+position = Vector2(2080, 1216)
+rotation = 3.14159
+polygon = PackedVector2Array(-4480, -640, -4480, -320, -4480, 448, -160.286, 448, -160, -640)
+is_player_friendly = true
+
+[node name="obstacle5" parent="obstacles" index="4" instance=ExtResource("2_bt44k")]
+polygon = PackedVector2Array(930.437, 0, 1656, 264, 2080, 448, 2080, -640, 0.0648193, -640, 0, 448)
+
+[node name="obstacle6" parent="obstacles" index="5" instance=ExtResource("2_bt44k")]
+position = Vector2(2080, 1216)
+rotation = 3.14159
+polygon = PackedVector2Array(-160, 448, 0, 448, 0, 0, 1144, 880, 2088, -7.99475, 2088, -639.995, -160, -640)
+
+[node name="emitter_park" parent="active_emitters" index="0" instance=ExtResource("5_n46q3")]
+position = Vector2(928, 176)
+speed = 400
+
+[node name="level_start" parent="active_emitters" index="1"]
+position = Vector2(168, 616)
+speed = 400
+collision = SubResource("CircleShape2D_n46q3")
+
+[node name="level_fin" parent="." index="4"]
+position = Vector2(1720, 608)
+
+[node name="level_cam" parent="." index="5"]
+position = Vector2(1048, 624)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Spawnpoint" parent="." index="6"]
+position = Vector2(912, 648)
+scale = Vector2(23, 14)
+
+[connection signal="player_contact" from="active_emitters/level_start" to="." method="_on_level_start_contact"]
+[connection signal="change_scene" from="level_fin" to="." method="_on_fin_change_scene"]

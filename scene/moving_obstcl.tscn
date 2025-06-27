@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ve8wlfssrbyh"]
+
+[ext_resource type="PackedScene" uid="uid://cqb41knkin4os" path="res://scene/obstacle.tscn" id="1_wircv"]
+[ext_resource type="Script" uid="uid://cye27qaksiddq" path="res://scr/moving_obstcl.gd" id="2_sewum"]
+
+[node name="moving_obstcl" instance=ExtResource("1_wircv")]
+script = ExtResource("2_sewum")
+motion = Vector2(0, 0)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2ix5m1g3b142"]
+
+[ext_resource type="PackedScene" uid="uid://cnlt7h6402e3d" path="res://scene/emitter_park.tscn" id="1_nlnxd"]
+
+[node name="level_start" instance=ExtResource("1_nlnxd")]
+
+[node name="land_1" parent="." index="3"]
+frequency/start_frequency = 0.418437
+
+[node name="land_2" parent="." index="4"]
+frequency/start_frequency = 0.32

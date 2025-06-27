@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpvknr7q7kyhl"]
+
+[ext_resource type="Script" uid="uid://cpbb4h311ml7l" path="res://scr/mix.gd" id="1_x2h4u"]
+[ext_resource type="PackedScene" uid="uid://nnauqt75qu5o" path="res://scene/reciever.tscn" id="2_abl08"]
+[ext_resource type="PackedScene" uid="uid://b56mma4ae1elw" path="res://scene/emitter.tscn" id="3_e2p6c"]
+[ext_resource type="Texture2D" uid="uid://dft5kq16p7vt5" path="res://pic/new-orbit/frame_00002.png" id="4_abl08"]
+
+[node name="mix" type="Node2D"]
+script = ExtResource("1_x2h4u")
+
+[node name="reciever" parent="." instance=ExtResource("2_abl08")]
+is_father = true
+
+[node name="emitter" parent="." instance=ExtResource("3_e2p6c")]
+is_father = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = -2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_abl08")
+offset = Vector2(2, -38)
+
+[connection signal="triggered" from="reciever" to="." method="_on_reciever_triggered"]

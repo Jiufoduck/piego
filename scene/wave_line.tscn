@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c14gt3cpf0abd"]
+
+[ext_resource type="Script" uid="uid://b8ldfx17dd3rt" path="res://scr/wave_line.gd" id="1_s3cqc"]
+
+[sub_resource type="Curve" id="Curve_s3cqc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.196296, 0.807155), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.811111, 0.776905), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[node name="wave_line" type="Line2D"]
+process_priority = 1
+closed = true
+width = 30.0
+width_curve = SubResource("Curve_s3cqc")
+default_color = Color(0, 0.54902, 1, 1)
+joint_mode = 2
+round_precision = 32
+antialiased = true
+script = ExtResource("1_s3cqc")
+
+[node name="inner_line" type="Line2D" parent="."]
+closed = true

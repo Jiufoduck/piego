@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://du4r4vlt6ylfl"]
+
+[ext_resource type="Script" uid="uid://bq4awtyt43m7g" path="res://scr/wave.gd" id="1_04t2h"]
+
+[node name="wave" type="Node"]
+process_priority = 1
+script = ExtResource("1_04t2h")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="dot_root" type="Node" parent="."]
+
+[node name="line" type="Node" parent="."]
+
+[node name="clean_timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="replicate_all"]
+[connection signal="timeout" from="clean_timer" to="." method="_on_clean_timer_timeout"]

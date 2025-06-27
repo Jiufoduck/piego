@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbbhhordihav8"]
+
+[ext_resource type="PackedScene" uid="uid://b7fwo6pf5rijq" path="res://scene/level.tscn" id="1_pltw0"]
+[ext_resource type="Script" uid="uid://bhfmtugs00w8e" path="res://levels/level_6.gd" id="2_8tsbn"]
+[ext_resource type="PackedScene" uid="uid://cqb41knkin4os" path="res://scene/obstacle.tscn" id="2_qskt5"]
+[ext_resource type="PackedScene" uid="uid://b56mma4ae1elw" path="res://scene/emitter.tscn" id="3_8tsbn"]
+[ext_resource type="PackedScene" uid="uid://ve8wlfssrbyh" path="res://scene/moving_obstcl.tscn" id="3_rqsg2"]
+
+[node name="level_6" instance=ExtResource("1_pltw0")]
+script = ExtResource("2_8tsbn")
+
+[node name="Polygon2D" parent="floor" index="0"]
+polygon = PackedVector2Array(5072, -8752, 4664, -6512, -1472, -4944, -1536, -8472)
+
+[node name="moving_obstcl" parent="mobile_obstacle" index="0" instance=ExtResource("3_rqsg2")]
+position = Vector2(0, -256)
+antialiased = false
+polygon = PackedVector2Array(3264, -7552, 4720, -7552, 4720, -7296, 3264, -7296)
+motion = Vector2(0, 256)
+is_player_friendly = true
+
+[node name="moving_obstcl2" parent="mobile_obstacle" index="1" instance=ExtResource("3_rqsg2")]
+position = Vector2(0, -408)
+antialiased = false
+polygon = PackedVector2Array(-448, -7184, -64, -7184, -64, -6232, -448, -6232)
+motion = Vector2(-384, 0)
+is_player_friendly = true
+
+[node name="obstacle5" parent="obstacles" index="0" instance=ExtResource("2_qskt5")]
+polygon = PackedVector2Array(6536, -8512, 6528, -7616, 5824, -7616, 5824, -7552, 3264, -7552, 3264, -8512)
+is_player_friendly = true
+
+[node name="obstacle6" parent="obstacles" index="1" instance=ExtResource("2_qskt5")]
+polygon = PackedVector2Array(6528, -6144, 3264, -6144, 3264, -7296, 5824, -7296, 5824, -7232, 6528, -7232)
+is_player_friendly = true
+
+[node name="obstacle" parent="obstacles" index="2" instance=ExtResource("2_qskt5")]
+position = Vector2(0, -408)
+polygon = PackedVector2Array(3264, -6784, 2440, -6784, 2440, -7296, 2240, -7296, 2240, -6784, 1224, -6784, 1216, -7296, 1024, -7296, 1024, -6776, 72, -6784, 72, -5704, 3280, -5744)
+
+[node name="obstacle2" parent="obstacles" index="3" instance=ExtResource("2_qskt5")]
+position = Vector2(0, -408)
+polygon = PackedVector2Array(3272, -7808, 2440, -7808, 2440, -7568, 2240, -7552, 2256, -7808, 1208, -7800, 1216, -7544, 1016, -7560, 1016, -7816, -448, -7816, -448, -7104, -1744, -7112, -1752, -8224, 3272, -8216)
+
+[node name="obstacle3" parent="obstacles" index="4" instance=ExtResource("2_qskt5")]
+position = Vector2(0, -408)
+polygon = PackedVector2Array(-448, -7104, -1784, -7152, -1784, -5056, -448, -5056)
+is_player_friendly = true
+
+[node name="obstacle4" parent="obstacles" index="5" instance=ExtResource("2_qskt5")]
+position = Vector2(0, -408)
+polygon = PackedVector2Array(-64, -7184, 72, -7184, 72, -6144, 1216, -6152, 1224, -5056, -64, -5056)
+is_player_friendly = true
+
+[node name="obstacle7" parent="obstacles" index="6" instance=ExtResource("2_qskt5")]
+polygon = PackedVector2Array(2232, -7960, 2440, -7976, 2440, -7704, 2240, -7704)
+is_wave_friendly = true
+
+[node name="obstacle8" parent="obstacles" index="7" instance=ExtResource("2_qskt5")]
+polygon = PackedVector2Array(6528, -8216, 6528, -7616, 5824, -7616, 5824, -7552, 3264, -7552, 3264, -8216)
+is_player_friendly = true
+
+[node name="obstacle9" parent="obstacles" index="8" instance=ExtResource("2_qskt5")]
+polygon = PackedVector2Array(6528, -6144, 3264, -6144, 3264, -7296, 5824, -7296, 5824, -7232, 6528, -7232)
+is_player_friendly = true
+
+[node name="obstacle10" parent="obstacles" index="9" instance=ExtResource("2_qskt5")]
+position = Vector2(-1216, 10)
+polygon = PackedVector2Array(2224, -7986, 2440, -7976, 2440, -7698, 2240, -7698)
+is_wave_friendly = true
+
+[node name="level_start" parent="active_emitters" index="0"]
+position = Vector2(2664, -7424)
+
+[node name="emitter" parent="active_emitters" index="1" instance=ExtResource("3_8tsbn")]
+position = Vector2(2344, -7792)
+
+[node name="emitter2" parent="active_emitters" index="2" instance=ExtResource("3_8tsbn")]
+position = Vector2(1120, -7800)
+
+[node name="level_fin" parent="." index="4"]
+position = Vector2(-248, -7784)
+fix_angle = 90
+
+[node name="level_cam" parent="." index="5"]
+top_level = true
+position = Vector2(2664, -7688)
+follow_mode = 2
+zoom = Vector2(0.8, 0.8)
+follow_damping = true
+follow_axis_lock = 2
+
+[node name="Spawnpoint" parent="." index="6"]
+position = Vector2(1480, -7688)
+scale = Vector2(40, 15)
+
+[connection signal="player_contact" from="active_emitters/level_start" to="." method="_on_level_start_player_contact"]
+[connection signal="change_scene" from="level_fin" to="." method="_on_fin_change_scene"]

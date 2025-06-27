@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn5s2htump165"]
+
+[ext_resource type="PackedScene" uid="uid://b7fwo6pf5rijq" path="res://scene/level.tscn" id="1_823pn"]
+[ext_resource type="Script" uid="uid://bkvxcvtss5n22" path="res://levels/level_0.gd" id="2_foxie"]
+[ext_resource type="PackedScene" uid="uid://cqb41knkin4os" path="res://scene/obstacle.tscn" id="2_iss0w"]
+[ext_resource type="PackedScene" uid="uid://ve8wlfssrbyh" path="res://scene/moving_obstcl.tscn" id="3_7d3si"]
+[ext_resource type="Texture2D" uid="uid://cvutmdm2axyce" path="res://pic/space.png" id="3_iss0w"]
+[ext_resource type="Texture2D" uid="uid://t5unwhnrxk48" path="res://pic/mouse.png" id="6_7d3si"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_823pn"]
+size = Vector2(100, 100)
+
+[node name="Level_0" instance=ExtResource("1_823pn")]
+script = ExtResource("2_foxie")
+
+[node name="Polygon2D" parent="floor" index="0"]
+polygon = PackedVector2Array(-5928, -232, -728, -200, -776, 1376, -5568, 1448)
+
+[node name="moving_obstcl" parent="mobile_obstacle" index="0" instance=ExtResource("3_7d3si")]
+polygon = PackedVector2Array(-4480, 448, -4480, 768, -3288, 768, -3288, 448)
+motion = Vector2(0, 400)
+
+[node name="obstacle" parent="obstacles" index="0" instance=ExtResource("2_iss0w")]
+polygon = PackedVector2Array(-4416.28, -640, -6848, -640, -6856, 1864, -4416.52, 1858.73, -4415.81, 768, -4480, 768, -4480, 1280, -5440, 1280, -5440, 0, -4488, 0, -4480, 448, -4416.52, 448)
+
+[node name="obstacle1" parent="obstacles" index="1" instance=ExtResource("2_iss0w")]
+polygon = PackedVector2Array(-960, 448, -960, -640, -4416.28, -640, -4416.52, 448)
+is_player_friendly = true
+
+[node name="obstacle2" parent="obstacles" index="2" instance=ExtResource("2_iss0w")]
+polygon = PackedVector2Array(-4416.52, 1858.73, -960, 1864, -960, 768, -4415.81, 768)
+is_player_friendly = true
+
+[node name="level_start" parent="active_emitters" index="0"]
+position = Vector2(-5248, 616)
+angle = 270
+collision = SubResource("RectangleShape2D_823pn")
+
+[node name="level_fin" parent="." index="4"]
+position = Vector2(-4664, 608)
+
+[node name="level_cam" parent="." index="5"]
+position = Vector2(-4928, 640)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Spawnpoint" parent="." index="6"]
+position = Vector2(-5248, 616)
+
+[node name="Space" type="Sprite2D" parent="." index="7"]
+position = Vector2(-5608, 608)
+scale = Vector2(2.5, 2.59524)
+texture = ExtResource("3_iss0w")
+
+[node name="Mouse" type="Sprite2D" parent="." index="8"]
+position = Vector2(-5608, 440)
+texture = ExtResource("6_7d3si")
+
+[connection signal="change_scene" from="level_fin" to="." method="_on_fin_change_scene"]

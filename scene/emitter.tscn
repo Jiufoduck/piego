@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b56mma4ae1elw"]
+
+[ext_resource type="Script" uid="uid://dpq4xggwfsgjq" path="res://scr/emitter.gd" id="1_e8ocv"]
+[ext_resource type="Texture2D" uid="uid://dc2t23seowu7b" path="res://pic/new-orbit/frame_00004.png" id="2_e8ocv"]
+
+[node name="emitter" type="Node2D"]
+script = ExtResource("1_e8ocv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_e8ocv")
+offset = Vector2(0, -39)
+
+[node name="layer" type="Sprite2D" parent="."]
+z_index = -3
+scale = Vector2(0.5, 0.5)
+offset = Vector2(0, -40)
+
+[node name="angle_range" type="Line2D" parent="."]
+z_index = -1
+width = 30.0
+joint_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 1

@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://brcoitkx5br2"]
+
+[ext_resource type="PackedScene" uid="uid://b7fwo6pf5rijq" path="res://scene/level.tscn" id="1_3igfe"]
+[ext_resource type="Script" uid="uid://1lm7dikhq851" path="res://levels/level_7.gd" id="2_e8mof"]
+[ext_resource type="PackedScene" uid="uid://cqb41knkin4os" path="res://scene/obstacle.tscn" id="2_w8d84"]
+[ext_resource type="PackedScene" uid="uid://ve8wlfssrbyh" path="res://scene/moving_obstcl.tscn" id="3_jgr6b"]
+[ext_resource type="PackedScene" uid="uid://cnlt7h6402e3d" path="res://scene/emitter_park.tscn" id="4_jgr6b"]
+
+[node name="level_7" instance=ExtResource("1_3igfe")]
+script = ExtResource("2_e8mof")
+
+[node name="Polygon2D" parent="floor" index="0"]
+polygon = PackedVector2Array(-1872, -7080, 2376, -6576, 1848, -2392, -3136, -2512)
+
+[node name="moving_obstcl" parent="mobile_obstacle" index="0" instance=ExtResource("3_jgr6b")]
+position = Vector2(-384, -8)
+polygon = PackedVector2Array(-448, -7280, -64, -7280, -64, -5456, -448, -5456)
+motion = Vector2(384, 0)
+is_player_friendly = true
+
+[node name="moving_obstcl2" parent="mobile_obstacle" index="1" instance=ExtResource("3_jgr6b")]
+polygon = PackedVector2Array(832, -4416, 1152, -4416, 1152, -3920, 832, -3920)
+motion = Vector2(400, 0)
+is_player_friendly = true
+
+[node name="obstacle3" parent="obstacles" index="0" instance=ExtResource("2_w8d84")]
+position = Vector2(0, -408)
+polygon = PackedVector2Array(-448, -7104, -1784, -7152, -2112, -5056, -448, -5056)
+is_player_friendly = true
+
+[node name="obstacle4" parent="obstacles" index="1" instance=ExtResource("2_w8d84")]
+position = Vector2(0, -408)
+polygon = PackedVector2Array(-64, -7184, 72, -7184, 72, -6144, 1480, -6152, 2712, -5056, -64, -5056)
+is_player_friendly = true
+
+[node name="obstacle" parent="obstacles" index="2" instance=ExtResource("2_w8d84")]
+position = Vector2(-388.907, -294.186)
+scale = Vector2(1.00639, 0.948454)
+polygon = PackedVector2Array(-1441.88, -5459.22, -1441.88, -4345.83, 1109.82, -4345.83, 1109.82, -4219.3, -1743.95, -4227.74, -1736, -5552, -64, -5544, -64, -5456)
+
+[node name="obstacle2" parent="obstacles" index="3" instance=ExtResource("2_w8d84")]
+position = Vector2(2352, 0)
+polygon = PackedVector2Array(240, -5544, 240, -4296, -1080, -4296, -1080, -5464, -2416, -5464, -2416, -5544)
+
+[node name="obstacle5" parent="obstacles" index="4" instance=ExtResource("2_w8d84")]
+position = Vector2(-374, 2)
+polygon = PackedVector2Array(-202, -5474, -202, -5154, -778, -5154, -778, -5474, -914, -5474, -914, -4986, -258.314, -4986, -258, -4674, -74, -4674, -72.6786, -4986, 1638, -4986, 1638, -5162, 854, -5162, 854, -5466, 710, -5466, 710, -5162, -74, -5154, -74, -5474)
+is_wave_friendly = true
+
+[node name="obstacle6" parent="obstacles" index="5" instance=ExtResource("2_w8d84")]
+polygon = PackedVector2Array(-1280, -4792, -1280, -4424, -1024, -4424, -1024, -4792)
+is_wave_friendly = true
+
+[node name="obstacle7" parent="obstacles" index="6" instance=ExtResource("2_w8d84")]
+position = Vector2(1072, 0)
+polygon = PackedVector2Array(-1280, -4792, -1280, -4424, -1024, -4424, -1024, -4792)
+is_wave_friendly = true
+
+[node name="obstacle8" parent="obstacles" index="7" instance=ExtResource("2_w8d84")]
+polygon = PackedVector2Array(832, -4416, -2064, -4416, -2064, -2464, 832, -2464)
+is_player_friendly = true
+
+[node name="obstacle9" parent="obstacles" index="8" instance=ExtResource("2_w8d84")]
+position = Vector2(-128, 1046)
+polygon = PackedVector2Array(2720, -5456, 2720, -3510, 1280, -3510, 1280, -5464)
+is_player_friendly = true
+
+[node name="level_start" parent="active_emitters" index="0"]
+position = Vector2(-248, -5312)
+
+[node name="emitter_park" parent="active_emitters" index="1" instance=ExtResource("4_jgr6b")]
+position = Vector2(-1600, -4712)
+
+[node name="level_fin" parent="." index="4"]
+position = Vector2(992, -4608)
+fix_angle = 90
+
+[node name="level_cam" parent="." index="5"]
+position = Vector2(-264, -4928)
+zoom = Vector2(0.6, 0.6)
+
+[node name="Spawnpoint" parent="." index="6"]
+position = Vector2(-288, -5040)
+scale = Vector2(33, 15)
+
+[connection signal="player_contact" from="active_emitters/level_start" to="." method="_on_start_player_contact"]
+[connection signal="change_scene" from="level_fin" to="." method="_on_fin_change_scene"]

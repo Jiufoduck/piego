@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3dr2q1uskc7j"]
+
+[ext_resource type="PackedScene" uid="uid://b7fwo6pf5rijq" path="res://scene/level.tscn" id="1_4mk42"]
+[ext_resource type="Script" uid="uid://b55t3v25toibb" path="res://levels/level_8.gd" id="2_rmft0"]
+[ext_resource type="PackedScene" uid="uid://cqb41knkin4os" path="res://scene/obstacle.tscn" id="2_y1kxu"]
+[ext_resource type="PackedScene" uid="uid://ve8wlfssrbyh" path="res://scene/moving_obstcl.tscn" id="3_4kux0"]
+[ext_resource type="PackedScene" uid="uid://b56mma4ae1elw" path="res://scene/emitter.tscn" id="5_fxq3v"]
+
+[node name="level_8" instance=ExtResource("1_4mk42")]
+script = ExtResource("2_rmft0")
+
+[node name="Polygon2D" parent="floor" index="0"]
+polygon = PackedVector2Array(-2080, -4488, 2032, -4560, 2568, -8, -2072, -32)
+
+[node name="moving_obstcl" parent="mobile_obstacle" index="0" instance=ExtResource("3_4kux0")]
+position = Vector2(-320, 0)
+polygon = PackedVector2Array(768, -3920, 768, -2432, 1152, -2432, 1152, -3920)
+motion = Vector2(328, 0)
+is_player_friendly = true
+
+[node name="moving_obstcl2" parent="mobile_obstacle" index="1" instance=ExtResource("3_4kux0")]
+position = Vector2(-320, 0)
+polygon = PackedVector2Array(2304, -1600, 2304, -1344, 3048, -1344, 3048, -1600)
+motion = Vector2(0, 300)
+is_player_friendly = true
+
+[node name="obstacle8" parent="obstacles" index="0" instance=ExtResource("2_y1kxu")]
+polygon = PackedVector2Array(832, -4416, -2064, -4416, -2064, -2432, 832, -2432)
+is_player_friendly = true
+
+[node name="obstacle9" parent="obstacles" index="1" instance=ExtResource("2_y1kxu")]
+polygon = PackedVector2Array(2720, -5456, 2720, -2432, 1152, -2432, 1152, -4416, 1272, -4424, 1280, -5464)
+is_player_friendly = true
+
+[node name="obstacle" parent="obstacles" index="2" instance=ExtResource("2_y1kxu")]
+polygon = PackedVector2Array(1152, -2112, 704, -2112, 704, -1984, 1337.39, -1984, 1984, -1600, 1984, -2432, 1152, -2432)
+
+[node name="obstacle4" parent="obstacles" index="3" instance=ExtResource("2_y1kxu")]
+polygon = PackedVector2Array(-2064, -2432, -2064, -112, -640, -64, 1984, -64, 1984, -1344, -128, -1344, -416, -1400, -720, -1632, -1024, -2432, 640, -2432, 640, -2480, -2064, -2480)
+
+[node name="obstacle2" parent="obstacles" index="4" instance=ExtResource("2_y1kxu")]
+position = Vector2(136, -24)
+polygon = PackedVector2Array(568, -2088, 568, -1576, 376, -1576, 376, -2088)
+is_wave_friendly = true
+
+[node name="obstacle3" parent="obstacles" index="5" instance=ExtResource("2_y1kxu")]
+position = Vector2(192, 664)
+polygon = PackedVector2Array(64, -2008, -128, -2008, -128, -3096, 64, -3096)
+is_wave_friendly = true
+
+[node name="obstacle5" parent="obstacles" index="6" instance=ExtResource("2_y1kxu")]
+polygon = PackedVector2Array(1152, -1984, 1152, -1344, 1344, -1344, 1344, -1984)
+is_wave_friendly = true
+
+[node name="obstacle6" parent="obstacles" index="7" instance=ExtResource("2_y1kxu")]
+polygon = PackedVector2Array(1984, -2696, 1984, -1600, 5056, -1600, 5056, -2432)
+is_player_friendly = true
+
+[node name="obstacle7" parent="obstacles" index="8" instance=ExtResource("2_y1kxu")]
+polygon = PackedVector2Array(1984, -1344, 1984, -64, 5056, -64, 5056, -1344)
+is_player_friendly = true
+
+[node name="level_start" parent="active_emitters" index="0"]
+position = Vector2(992, -2272)
+angle_window = 90
+angle = 135
+speed = 300
+
+[node name="emitter" parent="active_emitters" index="1" instance=ExtResource("5_fxq3v")]
+position = Vector2(384, -1896)
+
+[node name="level_fin" parent="." index="4"]
+position = Vector2(1816, -1480)
+
+[node name="level_cam" parent="." index="5"]
+position = Vector2(760, -1792)
+zoom = Vector2(0.6, 0.6)
+
+[node name="Spawnpoint" parent="." index="6"]
+visible = false
+position = Vector2(520, -1856)
+scale = Vector2(30, 15)
+
+[connection signal="player_contact" from="active_emitters/level_start" to="." method="_on_start_player_contact"]
+[connection signal="change_scene" from="level_fin" to="." method="_on_fin_change_scene"]

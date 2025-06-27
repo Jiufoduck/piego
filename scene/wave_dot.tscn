@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://7hi0jbsuwvdk"]
+
+[ext_resource type="Script" uid="uid://dqu48ow5twye4" path="res://scr/wavedot.gd" id="1_rrxhx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04t2h"]
+radius = 5.0
+
+[node name="Wave_dot" type="Area2D"]
+collision_layer = 4
+collision_mask = 2147483648
+input_pickable = false
+script = ExtResource("1_rrxhx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_04t2h")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(2.85, 2.85)
+rect = Rect2(-2, -2, 4, 4)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+ignore_time_scale = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

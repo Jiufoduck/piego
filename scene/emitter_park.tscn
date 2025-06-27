@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnlt7h6402e3d"]
+
+[ext_resource type="Script" uid="uid://b580tw3dm68da" path="res://scr/emitter_park.gd" id="1_0nvim"]
+[ext_resource type="PackedScene" uid="uid://b56mma4ae1elw" path="res://scene/emitter.tscn" id="2_g7akh"]
+[ext_resource type="PackedScene" uid="uid://ce4s3hi6etryb" path="res://scene/park_spot.tscn" id="3_ym1pj"]
+[ext_resource type="Texture2D" uid="uid://2xres7nqvukk" path="res://pic/new-orbit/frame_00001.png" id="4_g7akh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0nvim"]
+radius = 20.0
+
+[node name="emitter_park" type="Node2D"]
+script = ExtResource("1_0nvim")
+collision = SubResource("CircleShape2D_0nvim")
+
+[node name="emitter" parent="." instance=ExtResource("2_g7akh")]
+is_father = true
+
+[node name="park_spot" parent="." instance=ExtResource("3_ym1pj")]
+
+[node name="icon" type="Sprite2D" parent="."]
+z_index = -2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_g7akh")
+offset = Vector2(0, -40)
+
+[connection signal="player_landed" from="park_spot" to="." method="_on_park_spot_player_landed"]
