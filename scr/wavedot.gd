@@ -38,13 +38,16 @@ func replicate():
 		anti = new_ins
 
 		new_ins.position = Global.centre_list[id] + Vector2.from_angle(new_dir)*radius
-
+		return new_ins
 var has_been_edge = false
-func be_edge():
-	if has_been_edge or out_sight:
+func be_edge(passdown_num = 0):
+	if has_been_edge:
 		return
-	await replicate()
 	has_been_edge = true
+	if out_sight or passdown_num>2:
+		return
+	var ins:Wave_dot = await replicate()
+	ins.be_edge(passdown_num+1)
 
 func angle_median(angle1: float, angle2: float) -> float:
 	angle1 = fposmod(angle1, TAU)
@@ -74,9 +77,3 @@ func _on_timer_timeout() -> void:
 	out_sight = not $VisibleOnScreenNotifier2D.is_on_screen()
 
 var out_sight = false
-#func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-#	out_sight = false
-
-
-#func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-#	out_sight = true

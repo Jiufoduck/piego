@@ -3,11 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dppbidwhbr4ev"
-valid=false
+path="res://.godot/imported/Uranus_Pixel_11Px.ttf-3e96a4d2122970c6bcdb368fc7a62e2e.fontdata"
 
 [deps]
 
 source_file="res://pic/Uranus_Pixel_11Px.ttf"
+dest_files=["res://.godot/imported/Uranus_Pixel_11Px.ttf-3e96a4d2122970c6bcdb368fc7a62e2e.fontdata"]
 
 [params]
 

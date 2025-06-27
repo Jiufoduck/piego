@@ -3,11 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c4mm3of2mc8o5"
-valid=false
+path="res://.godot/imported/Nunito-Black.ttf-2a374efbc207a97a99b8c70bdc4b7cbb.fontdata"
 
 [deps]
 
 source_file="res://addons/phantom_camera/fonts/Nunito-Black.ttf"
+dest_files=["res://.godot/imported/Nunito-Black.ttf-2a374efbc207a97a99b8c70bdc4b7cbb.fontdata"]
 
 [params]
 

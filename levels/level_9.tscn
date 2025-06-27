@@ -30,7 +30,7 @@ is_player_friendly = true
 
 [node name="obstacle2" parent="obstacles" index="2" instance=ExtResource("2_b5ana")]
 position = Vector2(0, 32)
-polygon = PackedVector2Array(5056, -1376, 6265.14, -1361.3, 7688, -1344, 7592, -2168, 6496, -2720, 8640, -2720, 8640, -896, 5056, -896)
+polygon = PackedVector2Array(5056, -1376, 7688, -1344, 7592, -2168, 6496, -2720, 8640, -2720, 8640, -896, 5056, -896)
 
 [node name="obstacle3" parent="obstacles" index="3" instance=ExtResource("2_b5ana")]
 polygon = PackedVector2Array(5056, -1600, 4992, -1600, 4992, -2432, 2960, -2432, 2960, -3608, 6272, -3608, 6272, -2688, 5056, -2688, 5056, -2265.88, 5656, -2264, 5656, -1984, 5056, -1984)

@@ -60,13 +60,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("switch"):
 		$cam_centre._on_shift()
-	#if event.is_action_pressed("pause"):
-	#	if Global.time_scale:
-	#		Global.time_scale = 0
-	#		Engine.time_scale = 0
-	#	else:
-	#		Engine.time_scale = 1
-	#		Global.time_scale = 1
+	if event.is_action_pressed("pause"):
+		if Global.time_scale:
+			Global.time_scale = 0
+			Engine.time_scale = 0
+		else:
+			Engine.time_scale = 1
+			Global.time_scale = 1
 
 
 func _on_cam_centre_fail() -> void:

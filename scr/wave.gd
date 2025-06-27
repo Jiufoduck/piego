@@ -91,7 +91,7 @@ func _process(delta: float) -> void:
 	if !is_closed:
 		for i in points:
 			i.waves[1].be_edge()
-			i.waves[-2].be_edge()
+			i.waves[-1].be_edge()
 	#获取角度区间
 	line_angle_windows.clear()
 	for ii in points:
