@@ -82,7 +82,6 @@ angle = 180
 
 [node name="emitter" parent="active_emitters" index="1" instance=ExtResource("5_j745c")]
 position = Vector2(13376, -5224)
-ini_speed = 400
 mask = 18
 
 [node name="emitter_park" parent="active_emitters" index="2" instance=ExtResource("6_lnjaj")]

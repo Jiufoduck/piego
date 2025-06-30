@@ -29,6 +29,7 @@ window/stretch/aspect="keep_width"
 [editor]
 
 movie_writer/movie_file="/Users/nk-macbookair/Desktop/new_godot_package/piego/pic/test.avi"
+movie_writer/fps=30
 
 [editor_plugins]
 

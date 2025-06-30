@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnmb332d814wg"]
+[gd_scene load_steps=9 format=3 uid="uid://bnmb332d814wg"]
 
 [ext_resource type="PackedScene" uid="uid://b7fwo6pf5rijq" path="res://scene/level.tscn" id="1_s4rsi"]
 [ext_resource type="PackedScene" uid="uid://cqb41knkin4os" path="res://scene/obstacle.tscn" id="2_b1vqp"]
 [ext_resource type="Script" uid="uid://esmcx5bbu87y" path="res://levels/level_10.gd" id="2_x27qk"]
 [ext_resource type="PackedScene" uid="uid://ve8wlfssrbyh" path="res://scene/moving_obstcl.tscn" id="3_5n8do"]
 [ext_resource type="PackedScene" uid="uid://b56mma4ae1elw" path="res://scene/emitter.tscn" id="5_p7y1e"]
+[ext_resource type="PackedScene" uid="uid://cnlt7h6402e3d" path="res://scene/emitter_park.tscn" id="6_5n8do"]
 [ext_resource type="PackedScene" uid="uid://cpvknr7q7kyhl" path="res://scene/mix.tscn" id="6_vndwe"]
 [ext_resource type="PackedScene" uid="uid://dhef41ji08lpi" path="res://scene/player_detector.tscn" id="7_gn8iv"]
 
@@ -85,21 +86,21 @@ angle = 270
 [node name="emitter" parent="active_emitters" index="1" instance=ExtResource("5_p7y1e")]
 position = Vector2(6392, -6824)
 
+[node name="emitter_park" parent="active_emitters" index="2" instance=ExtResource("6_5n8do")]
+position = Vector2(5952, -6352)
+angle = 90
+
 [node name="mix" parent="passive_emitter" index="0" instance=ExtResource("6_vndwe")]
 position = Vector2(6976, -6352)
 
-[node name="mix2" parent="passive_emitter" index="1" instance=ExtResource("6_vndwe")]
-position = Vector2(5952, -6360)
-mask = 19
-
-[node name="mix3" parent="passive_emitter" index="2" instance=ExtResource("6_vndwe")]
+[node name="mix3" parent="passive_emitter" index="1" instance=ExtResource("6_vndwe")]
 position = Vector2(7904, -6856)
 mask = 19
 
-[node name="player_detector" parent="passive_emitter" index="3" instance=ExtResource("7_gn8iv")]
+[node name="player_detector" parent="passive_emitter" index="2" instance=ExtResource("7_gn8iv")]
 position = Vector2(5952, -5936)
 
-[node name="player_detector2" parent="passive_emitter" index="4" instance=ExtResource("7_gn8iv")]
+[node name="player_detector2" parent="passive_emitter" index="3" instance=ExtResource("7_gn8iv")]
 position = Vector2(7552, -6352)
 
 [node name="level_fin" parent="." index="5"]
