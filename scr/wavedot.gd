@@ -39,15 +39,21 @@ func replicate():
 
 		new_ins.position = Global.centre_list[id] + Vector2.from_angle(new_dir)*radius
 		return new_ins
+
+
 var has_been_edge = false
-func be_edge(passdown_num = 0):
+func be_edge(is_anti, passdown_num = 0):
 	if has_been_edge:
 		return
 	has_been_edge = true
 	if out_sight or passdown_num>2:
 		return
-	var ins:Wave_dot = await replicate()
-	ins.be_edge(passdown_num+1)
+	if is_anti:
+		var ins:Wave_dot = await replicate()
+		ins.be_edge(is_anti, passdown_num+1)
+	else:
+		await replicate()
+		be_edge(is_anti, passdown_num+1)
 
 func angle_median(angle1: float, angle2: float) -> float:
 	angle1 = fposmod(angle1, TAU)

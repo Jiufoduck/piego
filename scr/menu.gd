@@ -24,8 +24,9 @@ func _ready() -> void:
 	$MarginContainer.position = out_screen_point
 	$sample.position = out_screen_point
 
-func appear():
+func appear(level_index):
 	is_on = true
+	%HSlider.value = level_index
 	if !main_tween:
 		pass
 	elif main_tween.is_valid() and main_tween.is_running():

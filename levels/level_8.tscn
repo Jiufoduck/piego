@@ -13,7 +13,7 @@ script = ExtResource("2_rmft0")
 polygon = PackedVector2Array(-2080, -4488, 2032, -4560, 2568, -8, -2072, -32)
 
 [node name="moving_obstcl" parent="mobile_obstacle" index="0" instance=ExtResource("3_4kux0")]
-position = Vector2(-320, 0)
+position = Vector2(-320, -64)
 polygon = PackedVector2Array(768, -3920, 768, -2432, 1152, -2432, 1152, -3920)
 motion = Vector2(328, 0)
 is_player_friendly = true
@@ -25,7 +25,7 @@ motion = Vector2(0, 300)
 is_player_friendly = true
 
 [node name="obstacle8" parent="obstacles" index="0" instance=ExtResource("2_y1kxu")]
-polygon = PackedVector2Array(832, -4416, -2064, -4416, -2064, -2432, 832, -2432)
+polygon = PackedVector2Array(832, -4416, -2064, -4416, -2064, -2496, 832, -2496)
 is_player_friendly = true
 
 [node name="obstacle9" parent="obstacles" index="1" instance=ExtResource("2_y1kxu")]
@@ -36,7 +36,7 @@ is_player_friendly = true
 polygon = PackedVector2Array(1152, -2112, 704, -2112, 704, -1984, 1337.39, -1984, 1984, -1600, 1984, -2432, 1152, -2432)
 
 [node name="obstacle4" parent="obstacles" index="3" instance=ExtResource("2_y1kxu")]
-polygon = PackedVector2Array(-2064, -2432, -2064, -112, -640, -64, 1984, -64, 1984, -1344, -128, -1344, -416, -1400, -720, -1632, -1024, -2432, 640, -2432, 640, -2480, -2064, -2480)
+polygon = PackedVector2Array(-2064, -112, -640, -64, 1984, -64, 1984, -1344, -128, -1344, -416, -1400, -720, -1632, -1024, -2496, 640, -2496, 640, -2560, -2064, -2560)
 
 [node name="obstacle2" parent="obstacles" index="4" instance=ExtResource("2_y1kxu")]
 position = Vector2(136, -24)
@@ -45,7 +45,7 @@ is_wave_friendly = true
 
 [node name="obstacle3" parent="obstacles" index="5" instance=ExtResource("2_y1kxu")]
 position = Vector2(192, 664)
-polygon = PackedVector2Array(64, -2008, -128, -2008, -128, -3096, 64, -3096)
+polygon = PackedVector2Array(64, -2008, -128, -2008, -128, -3144, 64, -3144)
 is_wave_friendly = true
 
 [node name="obstacle5" parent="obstacles" index="6" instance=ExtResource("2_y1kxu")]
@@ -68,15 +68,16 @@ speed = 300
 
 [node name="emitter" parent="active_emitters" index="1" instance=ExtResource("5_fxq3v")]
 position = Vector2(384, -1896)
+ini_speed = 170
 
-[node name="level_fin" parent="." index="4"]
+[node name="level_fin" parent="." index="5"]
 position = Vector2(1816, -1480)
 
-[node name="level_cam" parent="." index="5"]
+[node name="level_cam" parent="." index="6"]
 position = Vector2(760, -1792)
 zoom = Vector2(0.6, 0.6)
 
-[node name="Spawnpoint" parent="." index="6"]
+[node name="Spawnpoint" parent="." index="7"]
 visible = false
 position = Vector2(520, -1856)
 scale = Vector2(30, 15)

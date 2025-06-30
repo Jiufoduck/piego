@@ -20,10 +20,11 @@ func active_emitters_emit():
 func _on_level_fin_change_scene(angle,fin) -> void:
 	change_scene.emit(angle,fin)
 
-func fin_callback():
+func fin_callback(immi = false):
 	if !is_over:
 		is_over = true
-		await get_tree().create_timer(3).timeout
+		if !immi:
+			await get_tree().create_timer(3).timeout
 		queue_free()
 
 
@@ -36,3 +37,7 @@ func _on_spawnpoint_spwpoint_reload(cam: PhantomCamera2D, is_in: Variant) -> voi
 
 func get_spw_point():
 	return $active_emitters/level_start.position
+
+
+func reset_moving_obstc():
+	pass

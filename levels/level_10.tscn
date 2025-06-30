@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnmb332d814wg"]
+
+[ext_resource type="PackedScene" uid="uid://b7fwo6pf5rijq" path="res://scene/level.tscn" id="1_s4rsi"]
+[ext_resource type="PackedScene" uid="uid://cqb41knkin4os" path="res://scene/obstacle.tscn" id="2_b1vqp"]
+[ext_resource type="Script" uid="uid://esmcx5bbu87y" path="res://levels/level_10.gd" id="2_x27qk"]
+[ext_resource type="PackedScene" uid="uid://ve8wlfssrbyh" path="res://scene/moving_obstcl.tscn" id="3_5n8do"]
+[ext_resource type="PackedScene" uid="uid://b56mma4ae1elw" path="res://scene/emitter.tscn" id="5_p7y1e"]
+[ext_resource type="PackedScene" uid="uid://cpvknr7q7kyhl" path="res://scene/mix.tscn" id="6_vndwe"]
+[ext_resource type="PackedScene" uid="uid://dhef41ji08lpi" path="res://scene/player_detector.tscn" id="7_gn8iv"]
+
+[node name="level_10" instance=ExtResource("1_s4rsi")]
+script = ExtResource("2_x27qk")
+
+[node name="Polygon2D" parent="floor" index="0"]
+polygon = PackedVector2Array(5024, -7192, 13488, -7192, 13368, -4808, 8498.11, -4997.62, 8224, -2432, 4832, -2848)
+
+[node name="moving_obstcl" parent="mobile_obstacle" index="0" instance=ExtResource("3_5n8do")]
+polygon = PackedVector2Array(5760, -6224, 6144, -6224, 6144, -6000, 5760, -6000)
+motion = Vector2(384, 0)
+
+[node name="moving_obstcl2" parent="mobile_obstacle" index="1" instance=ExtResource("3_5n8do")]
+polygon = PackedVector2Array(7744, -6224, 8064, -6224, 8064, -6000, 7744, -6000)
+motion = Vector2(320, 0)
+
+[node name="moving_obstcl3" parent="mobile_obstacle" index="2" instance=ExtResource("3_5n8do")]
+polygon = PackedVector2Array(5760, -6672, 6144, -6672, 6144, -6472, 5760, -6472)
+motion = Vector2(384, 0)
+
+[node name="moving_obstcl4" parent="mobile_obstacle" index="3" instance=ExtResource("3_5n8do")]
+polygon = PackedVector2Array(7744, -6672, 8064, -6672, 8064, -6472, 7744, -6472)
+motion = Vector2(320, 0)
+
+[node name="moving_obstcl5" parent="mobile_obstacle" index="4" instance=ExtResource("3_5n8do")]
+position = Vector2(-384, 0)
+polygon = PackedVector2Array(6720, -5632, 7168, -5632, 7168, -3008, 6720, -3008)
+motion = Vector2(400, 0)
+is_player_friendly = true
+
+[node name="moving_obstcl6" parent="mobile_obstacle" index="5" instance=ExtResource("3_5n8do")]
+position = Vector2(-318, 0)
+polygon = PackedVector2Array(8448, -6016, 8448, -5632, 9024, -5632, 9024, -6016)
+motion = Vector2(0, 400)
+is_player_friendly = true
+
+[node name="obstacle" parent="obstacles" index="0" instance=ExtResource("2_b1vqp")]
+polygon = PackedVector2Array(6272, -2688, 6784, -2688, 6784, -5632, 4480, -5632, 4480, -3608, 6272, -3608)
+is_player_friendly = true
+
+[node name="obstacle1" parent="obstacles" index="1" instance=ExtResource("2_b1vqp")]
+polygon = PackedVector2Array(7168, -2688, 7168, -5632, 9024, -5632, 9024, -2688)
+is_player_friendly = true
+
+[node name="obstacle2" parent="obstacles" index="2" instance=ExtResource("2_b1vqp")]
+polygon = PackedVector2Array(4480, -5560, 4480, -7744, 9024, -7744, 9024, -6080, 8064, -6080, 8064, -6208, 8128, -6208, 8128, -6488, 8064, -6488, 8064, -6656, 8128, -6656, 8128, -7040, 5120, -7040, 5120, -6656, 5760, -6656, 5760, -6488, 5568, -6488, 5568, -6208, 5760, -6208, 5760, -6016, 5568, -6013.54, 5568, -5632, 6464.06, -5632, 6464, -6016, 6144, -6016, 6144, -6208, 6784, -6208, 6784, -5632, 6784, -5560)
+
+[node name="obstacle3" parent="obstacles" index="3" instance=ExtResource("2_b1vqp")]
+polygon = PackedVector2Array(7168, -5632, 7168, -5568, 7904, -5568, 7904, -5632, 7487.61, -5632, 7488, -6016, 7744, -6016, 7744, -6208, 7168, -6208)
+
+[node name="obstacle4" parent="obstacles" index="4" instance=ExtResource("2_b1vqp")]
+polygon = PackedVector2Array(6144, -6656, 6144, -6488, 6784, -6488, 6784, -6656)
+
+[node name="obstacle5" parent="obstacles" index="5" instance=ExtResource("2_b1vqp")]
+polygon = PackedVector2Array(6592, -7032, 6592, -6656, 6784, -6656, 6784, -7032)
+is_wave_friendly = true
+
+[node name="obstacle6" parent="obstacles" index="6" instance=ExtResource("2_b1vqp")]
+polygon = PackedVector2Array(7168, -7032, 7168, -6656, 7360, -6656, 7360, -7032)
+is_wave_friendly = true
+
+[node name="obstacle7" parent="obstacles" index="7" instance=ExtResource("2_b1vqp")]
+polygon = PackedVector2Array(7168, -6656, 7168, -6488, 7744, -6488, 7744, -6656)
+
+[node name="obstacle8" parent="obstacles" index="8" instance=ExtResource("2_b1vqp")]
+polygon = PackedVector2Array(8064, -6080, 8064, -6016, 13184, -6016, 13184, -7168, 9024, -7168, 9024, -6080)
+is_player_friendly = true
+
+[node name="obstacle9" parent="obstacles" index="9" instance=ExtResource("2_b1vqp")]
+polygon = PackedVector2Array(9024, -5632, 9024, -4344, 13184, -4344, 13184, -5632)
+is_player_friendly = true
+
+[node name="level_start" parent="active_emitters" index="0"]
+position = Vector2(6976, -5808)
+angle = 270
+
+[node name="emitter" parent="active_emitters" index="1" instance=ExtResource("5_p7y1e")]
+position = Vector2(6392, -6824)
+
+[node name="mix" parent="passive_emitter" index="0" instance=ExtResource("6_vndwe")]
+position = Vector2(6976, -6352)
+
+[node name="mix2" parent="passive_emitter" index="1" instance=ExtResource("6_vndwe")]
+position = Vector2(5952, -6360)
+mask = 19
+
+[node name="mix3" parent="passive_emitter" index="2" instance=ExtResource("6_vndwe")]
+position = Vector2(7904, -6856)
+mask = 19
+
+[node name="player_detector" parent="passive_emitter" index="3" instance=ExtResource("7_gn8iv")]
+position = Vector2(5952, -5936)
+
+[node name="player_detector2" parent="passive_emitter" index="4" instance=ExtResource("7_gn8iv")]
+position = Vector2(7552, -6352)
+
+[node name="level_fin" parent="." index="5"]
+position = Vector2(7904, -5824)
+
+[node name="level_cam" parent="." index="6"]
+position = Vector2(6664, -6248)
+zoom = Vector2(0.6, 0.6)
+
+[node name="Spawnpoint" parent="." index="7"]
+position = Vector2(6656, -6256)
+scale = Vector2(30, 15)
+
+[node name="invalid_emit" parent="." index="9"]
+volume_db = -10.0
+
+[connection signal="player_contact" from="active_emitters/level_start" to="." method="_on_level_start_player_contact"]
+[connection signal="triggered" from="passive_emitter/player_detector" to="." method="_on_player_detector1_triggered"]
+[connection signal="triggered" from="passive_emitter/player_detector2" to="." method="_on_player_detector2_triggered"]
+[connection signal="change_scene" from="level_fin" to="." method="_on_level_change_scene"]

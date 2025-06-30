@@ -20,7 +20,7 @@ collision = SubResource("CircleShape2D_gqk7o")
 
 [node name="emitter" parent="." instance=ExtResource("3_3qnvo")]
 angle_range = 60
-ini_speed = 1000
+ini_speed = 500
 is_accelerate = true
 mask = 16
 is_father = true

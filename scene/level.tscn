@@ -37,6 +37,8 @@ color = Color(0.475927, 0.475927, 0.475927, 1)
 
 [node name="level_start" parent="active_emitters" instance=ExtResource("3_ismto")]
 
+[node name="passive_emitter" type="Node2D" parent="."]
+
 [node name="level_fin" parent="." instance=ExtResource("2_36wlx")]
 
 [node name="level_cam" type="Node2D" parent="."]

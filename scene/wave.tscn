@@ -16,7 +16,7 @@ autostart = true
 [node name="line" type="Node" parent="."]
 
 [node name="clean_timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 7.0
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="replicate_all"]

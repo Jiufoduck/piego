@@ -57,7 +57,7 @@ polygon = PackedVector2Array(-1280, -4792, -1280, -4424, -1024, -4424, -1024, -4
 is_wave_friendly = true
 
 [node name="obstacle8" parent="obstacles" index="7" instance=ExtResource("2_w8d84")]
-polygon = PackedVector2Array(832, -4416, -2064, -4416, -2064, -2464, 832, -2464)
+polygon = PackedVector2Array(832, -4416, -2064, -4416, -2064, -2560, 832, -2560)
 is_player_friendly = true
 
 [node name="obstacle9" parent="obstacles" index="8" instance=ExtResource("2_w8d84")]
@@ -71,15 +71,15 @@ position = Vector2(-248, -5312)
 [node name="emitter_park" parent="active_emitters" index="1" instance=ExtResource("4_jgr6b")]
 position = Vector2(-1600, -4712)
 
-[node name="level_fin" parent="." index="4"]
+[node name="level_fin" parent="." index="5"]
 position = Vector2(992, -4608)
 fix_angle = 90
 
-[node name="level_cam" parent="." index="5"]
+[node name="level_cam" parent="." index="6"]
 position = Vector2(-264, -4928)
 zoom = Vector2(0.6, 0.6)
 
-[node name="Spawnpoint" parent="." index="6"]
+[node name="Spawnpoint" parent="." index="7"]
 position = Vector2(-288, -5040)
 scale = Vector2(33, 15)
 

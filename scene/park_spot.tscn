@@ -17,6 +17,7 @@ data = PackedByteArray("vszZ5/UDER4sOUU+MSMWCPrs39HDusXT4O77ChclMkBFNyocDwHz5djK
 
 [node name="park_spot" type="Area2D" groups=["park"]]
 collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_nbnja")
 
 [node name="CoShape" type="CollisionShape2D" parent="."]

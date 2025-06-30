@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhef41ji08lpi"]
+
+[ext_resource type="Script" uid="uid://b6xavi3obdyfl" path="res://scr/player_detector.gd" id="1_lqmku"]
+[ext_resource type="Texture2D" uid="uid://bexevfnnd0w0g" path="res://pic/new-orbit/frame_00006.png" id="2_uty30"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uty30"]
+radius = 40.0
+
+[node name="player_detector" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_lqmku")
+
+[node name="icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_uty30")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uty30")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

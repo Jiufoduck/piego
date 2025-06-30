@@ -91,8 +91,8 @@ follow_damping = true
 follow_axis_lock = 2
 
 [node name="Spawnpoint" parent="." index="6"]
-position = Vector2(1480, -7688)
-scale = Vector2(40, 15)
+position = Vector2(1662, -7701)
+scale = Vector2(32, 12)
 
 [connection signal="player_contact" from="active_emitters/level_start" to="." method="_on_level_start_player_contact"]
 [connection signal="change_scene" from="level_fin" to="." method="_on_fin_change_scene"]

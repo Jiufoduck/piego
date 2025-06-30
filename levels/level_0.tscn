@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cvutmdm2axyce" path="res://pic/space.png" id="3_iss0w"]
 [ext_resource type="Texture2D" uid="uid://t5unwhnrxk48" path="res://pic/mouse.png" id="6_7d3si"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_823pn"]
-size = Vector2(100, 100)
+[sub_resource type="CircleShape2D" id="CircleShape2D_7d3si"]
+radius = 40.0
 
 [node name="Level_0" instance=ExtResource("1_823pn")]
 script = ExtResource("2_foxie")
@@ -34,17 +34,14 @@ is_player_friendly = true
 [node name="level_start" parent="active_emitters" index="0"]
 position = Vector2(-5248, 616)
 angle = 270
-collision = SubResource("RectangleShape2D_823pn")
+collision = SubResource("CircleShape2D_7d3si")
 
-[node name="level_fin" parent="." index="4"]
+[node name="level_fin" parent="." index="5"]
 position = Vector2(-4664, 608)
 
-[node name="level_cam" parent="." index="5"]
+[node name="level_cam" parent="." index="6"]
 position = Vector2(-4928, 640)
 zoom = Vector2(0.8, 0.8)
-
-[node name="Spawnpoint" parent="." index="6"]
-position = Vector2(-5248, 616)
 
 [node name="Space" type="Sprite2D" parent="." index="7"]
 position = Vector2(-5608, 608)
@@ -54,5 +51,8 @@ texture = ExtResource("3_iss0w")
 [node name="Mouse" type="Sprite2D" parent="." index="8"]
 position = Vector2(-5608, 440)
 texture = ExtResource("6_7d3si")
+
+[node name="Spawnpoint" parent="." index="9"]
+position = Vector2(-5248, 616)
 
 [connection signal="change_scene" from="level_fin" to="." method="_on_fin_change_scene"]
