@@ -40,7 +40,7 @@ polygon = PackedVector2Array(8512, 0, 11464, 8, 11464, -1008, 9352, -1008, 9352.
 
 [node name="obstacle7" parent="obstacles" index="3" instance=ExtResource("2_gew73")]
 position = Vector2(2768, 1464)
-polygon = PackedVector2Array(8512, 0, 11312, 16, 11312, -2624, 9832, -2616, 9832, -1144, 9392, -1144, 9312, -1696, 9144, -1696, 9072, -1152, 8512, -1144)
+polygon = PackedVector2Array(8512, 0, 11312, 16, 11312, -2624, 9832, -2616, 9832, -1144, 8512, -1144)
 
 [node name="obstacle" parent="obstacles" index="4" instance=ExtResource("2_gew73")]
 position = Vector2(0, 8)
@@ -55,6 +55,13 @@ is_player_friendly = true
 [node name="obstacle3" parent="obstacles" index="6" instance=ExtResource("2_gew73")]
 position = Vector2(16, 0)
 polygon = PackedVector2Array(11312, -608, 11192, -608, 11192, -80, 11312, -80)
+
+[node name="obstacle4" parent="obstacles" index="7" instance=ExtResource("2_gew73")]
+polygon = PackedVector2Array(11888, -32, 12112, -32, 12160, 320, 11840, 320)
+is_wave_friendly = true
+
+[node name="obstacle8" parent="obstacles" index="8" instance=ExtResource("2_gew73")]
+polygon = PackedVector2Array(11888, -32, 12112, -32, 12096, -192, 11904, -192)
 
 [node name="level_start" parent="active_emitters" index="0"]
 position = Vector2(11544, 144)

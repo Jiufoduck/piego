@@ -67,6 +67,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("switch"):
 		$cam_centre._on_shift()
 	#if event.is_action_pressed("pause"):
+	#	$main.play()
 	#	if Global.time_scale:
 	#		Global.time_scale = 0
 	#		Engine.time_scale = 0
