@@ -18,7 +18,6 @@ func _ready() -> void:
 		$virtual_edge.points = polygon
 		$collision.set_collision_layer_value(32,false)
 		$collision.set_collision_layer_value(31,true)
-		$virtual_edge.material = $virtual_edge.material.duplicate()
 		balance_shader($virtual_edge)
 
 

@@ -56,8 +56,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if $UI/menu.is_on:
 		return
 
-	#if event.is_action_pressed("moving"):
-	#	moving = not moving
 	if event.is_action_pressed("reverse") and $cam_centre.loader and $cam_centre.loader is Wave:
 		if Global.time_scale == 1.0:
 			$cam_centre.reverse()
