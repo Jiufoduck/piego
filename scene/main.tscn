@@ -561,10 +561,12 @@ anchor_bottom = 1.0
 offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
+mouse_filter = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="UI/Control/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("54_ycj0v")
 stretch_mode = 3
 

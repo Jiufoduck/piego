@@ -13,7 +13,7 @@ const vec2 texture_size = vec2(500,33);
 
 void fragment() {
     float pattern_length = dash_size + gap_size;
-    float pos = UV.x * TEXTURE_PIXEL_SIZE.x * texture_size.x;
+    float pos = UV.x * texture_size.x; 
     float moving_pos = pos - TIME * speed;
     float mod_pos = mod(moving_pos, pattern_length);
 
@@ -31,7 +31,7 @@ shader_parameter/dash_size = 30.0
 shader_parameter/gap_size = 30.0
 
 [node name="obstacle" type="Polygon2D"]
-color = Color(0, 1, 1, 1)
+color = Color(0, 0.517647, 1, 1)
 antialiased = true
 script = ExtResource("1_p1pd2")
 

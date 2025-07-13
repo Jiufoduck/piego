@@ -27,6 +27,7 @@ motion = Vector2(0, 256)
 [node name="moving_obstcl3" parent="mobile_obstacle" index="2" instance=ExtResource("3_rp27l")]
 polygon = PackedVector2Array(17856, -5952, 19520, -5952, 19520, -5696, 17856, -5696)
 motion = Vector2(0, 300)
+is_player_friendly = true
 
 [node name="obstacle" parent="obstacles" index="0" instance=ExtResource("2_lqyau")]
 polygon = PackedVector2Array(8064, -6080, 8064, -6016, 13184, -6016, 13184, -7168, 9024, -7168, 9024, -6080)

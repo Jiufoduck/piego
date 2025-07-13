@@ -1,8 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://ve8wlfssrbyh"]
+[gd_scene load_steps=5 format=3 uid="uid://ve8wlfssrbyh"]
 
 [ext_resource type="PackedScene" uid="uid://cqb41knkin4os" path="res://scene/obstacle.tscn" id="1_wircv"]
 [ext_resource type="Script" uid="uid://cye27qaksiddq" path="res://scr/moving_obstcl.gd" id="2_sewum"]
 
+[sub_resource type="Shader" id="Shader_p1pd2"]
+code = "
+shader_type canvas_item;
+
+uniform float speed = 50.0;
+uniform float dash_size = 60.0;
+uniform float gap_size = 60.0;
+const vec2 texture_size = vec2(500,33);
+
+void fragment() {
+    float pattern_length = dash_size + gap_size;
+    float pos = UV.x * texture_size.x; 
+    float moving_pos = pos - TIME * speed;
+    float mod_pos = mod(moving_pos, pattern_length);
+
+    if (mod_pos > dash_size) {
+        discard;
+    }
+    COLOR = texture(TEXTURE, UV);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sewum"]
+resource_local_to_scene = true
+shader = SubResource("Shader_p1pd2")
+shader_parameter/speed = 25.0
+shader_parameter/dash_size = 30.0
+shader_parameter/gap_size = 30.0
+
 [node name="moving_obstcl" instance=ExtResource("1_wircv")]
 script = ExtResource("2_sewum")
 motion = Vector2(0, 0)
+
+[node name="virtual_edge" parent="." index="1"]
+material = SubResource("ShaderMaterial_sewum")

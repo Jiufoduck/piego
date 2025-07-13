@@ -51,7 +51,7 @@ func fade():
 	main_tween.tween_property($MarginContainer,"position",out_screen_point,0.5)
 	main_tween.tween_property($sample,"position",out_screen_point,0.5)
 	await get_tree().create_timer(0.5).timeout
-	$ColorRect.position = Vector2.ZERO
+	$ColorRect.position = out_screen_point
 
 
 func _on_h_slider_value_changed(value: float) -> void:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://yoxxn0exnl8v"]
+[gd_scene load_steps=8 format=3 uid="uid://yoxxn0exnl8v"]
 
 [ext_resource type="PackedScene" uid="uid://b7fwo6pf5rijq" path="res://scene/level.tscn" id="1_2xxb0"]
 [ext_resource type="Script" uid="uid://v2hnqjmpiv1d" path="res://levels/level_end.gd" id="2_litj0"]
 [ext_resource type="PackedScene" uid="uid://cqb41knkin4os" path="res://scene/obstacle.tscn" id="2_o8lqf"]
+[ext_resource type="PackedScene" uid="uid://ve8wlfssrbyh" path="res://scene/moving_obstcl.tscn" id="3_wmrwu"]
 [ext_resource type="FontFile" uid="uid://dppbidwhbr4ev" path="res://pic/Uranus_Pixel_11Px.ttf" id="4_wmrwu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dcspb"]
@@ -19,9 +20,15 @@ script = ExtResource("2_litj0")
 [node name="Polygon2D" parent="floor" index="0"]
 polygon = PackedVector2Array(17704, -6424, 17704, -4952, 32488, -4936, 32296, -6600)
 
+[node name="moving_obstcl" parent="mobile_obstacle" index="0" instance=ExtResource("3_wmrwu")]
+position = Vector2(0, -256)
+polygon = PackedVector2Array(31048, -5952, 28928, -5952, 28928, -5696, 31048, -5696)
+motion = Vector2(0, 256)
+is_player_friendly = true
+
 [node name="obstacle10" parent="obstacles" index="0" instance=ExtResource("2_o8lqf")]
 position = Vector2(0, -64)
-polygon = PackedVector2Array(17856, -5888, 31048, -5888, 31048, -6207.96, 31936, -6208, 31936, -5312, 31048, -5312, 31048, -4992, 32576, -4992, 32576, -7168, 17856, -7168)
+polygon = PackedVector2Array(17856, -5888, 31048, -5888, 31048, -6207.96, 31048, -7168, 17856, -7168)
 is_player_friendly = true
 
 [node name="obstacle11" parent="obstacles" index="1" instance=ExtResource("2_o8lqf")]
@@ -29,14 +36,21 @@ position = Vector2(0, 1472)
 polygon = PackedVector2Array(17856, -5896, 31048, -5888, 31048, -7168, 17856, -7168)
 is_player_friendly = true
 
+[node name="obstacle12" parent="obstacles" index="2" instance=ExtResource("2_o8lqf")]
+position = Vector2(0, -64)
+polygon = PackedVector2Array(31048, -6207.96, 31936, -6208, 31936, -5312, 31048, -5312, 31048, -4352, 33984, -4352, 33984, -7168, 31048, -7168)
+
 [node name="level_start" parent="active_emitters" index="0"]
-position = Vector2(32640, -5824)
+position = Vector2(31224, -5824)
 
 [node name="level_fin" parent="." index="5"]
-position = Vector2(31296, -5824)
+position = Vector2(31704, -5824)
 
 [node name="level_cam" parent="." index="6"]
+top_level = true
 position = Vector2(31296, -5824)
+follow_mode = 2
+follow_axis_lock = 2
 
 [node name="Spawnpoint" parent="." index="7"]
 position = Vector2(31296, -5824)
@@ -51,6 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.615686)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect" index="0"]
@@ -87,5 +102,6 @@ layout_mode = 2
 mouse_filter = 2
 text = "continue"
 
+[connection signal="player_contact" from="active_emitters/level_start" to="." method="_on_level_start_player_contact"]
 [connection signal="change_scene" from="level_fin" to="." method="_on_fin_change_scene"]
 [connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/Button" to="." method="_on_button_pressed"]
